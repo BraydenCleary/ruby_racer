@@ -1,0 +1,6 @@
+<h2 class="title" id="game-<%= @game.id %>">Welcome to Ruby Racer.  The game that never gets old!<h2>
+<table>
+  <% @game.players.each_with_index do |player, idx| %>
+    <%= erb :_board, :locals => { :name => player.name, :idx => idx + 1, :url => @game.url } %>
+  <% end %>
+</table>

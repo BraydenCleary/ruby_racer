@@ -1,0 +1,11 @@
+<%= @player_game.errors.full_messages if @player_game %>
+
+<div id='game-form'>
+  <form action='/games' method='post'>
+    <input type='text' name='player_names[]' placeholder='player1'/>
+
+    <input type='text' name='player_names[]' placeholder='player2'/>
+
+    <input type='submit' value='Play Game!'>
+  </form>
+</div>

@@ -1,0 +1,27 @@
+.track {
+  height: 100px;
+  width: 100px;
+  border: 1px solid #ddd;
+}
+ 
+.track.winner {
+  background-color: green;
+}
+ 
+.buffer {
+  height: 25px;
+  width: 30px;
+  border: 1px solid #ddd;
+}
+ 
+tr td.player-name {
+  margin-top: 1em;
+}
+ 
+#player-1 .track.active {
+  background-image: url('../images/jeffrey.jpeg');
+}
+ 
+#player-2 .track.active {
+  background-image: url('../images/shadi.jpeg');
+}
