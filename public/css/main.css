@@ -1,7 +1,12 @@
+body {
+  background-image: url('../images/brushed_alu.png');
+  
+}
+
 .track {
   height: 100px;
   width: 100px;
-  border: 1px solid #ddd;
+  border: 1px solid #960000;
 }
  
 .track.winner {
@@ -25,3 +30,74 @@ tr td.player-name {
 #player-2 .track.active {
   background-image: url('../images/shadi.jpeg');
 }
+
+.board {
+  margin-left: 20px;
+}
+
+/*Home Page*/
+
+.container {
+  margin: 50px;
+}
+
+.input {
+  float: left;
+  line-height: 30px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  -webkit-border-radius: 8px;
+}
+
+.submit {
+  float: left;
+  clear: both;
+}
+
+form {
+  width: 325px;
+  float: left;
+  border-radius: 10px;
+
+}
+
+.game-form {
+  margin-top: 50px;
+  margin-left: 80px;
+  font-family: 'Rokkitt', serif;
+  font-size: 27px;
+  float: left;
+}
+
+.submit {
+  -webkit-border-radius: 8px;
+  background-color: white;
+  color: #470404;
+}
+
+.errors {
+  color: red;
+  font-size: 18px;
+}
+
+#title {
+  text-align: center;
+  margin: 0;
+  margin-bottom: 40px;
+  font-size: 80px;
+  color: #470404;
+  text-shadow: 2px 2px 2px black;
+  font-family: 'Faster One', cursive;
+}
+
+.ruby-racer {
+  width: 400px;
+  height: 500px;
+  float: left;
+  margin: 30px 70px 0 80px;
+}
+
+::-webkit-input-placeholder {
+}
+
+
