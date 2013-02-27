@@ -3,9 +3,10 @@ get '/' do
 end
 
 post '/games' do 
+  content_type :json
   @game = Game.create
   if setup_game(params[:player_names], @game)
-    redirect "/games/#{@game.id}/play"
+    {game: @game, players: params[:player_names]}.to_json
   else
     erb :index
   end
@@ -30,4 +31,3 @@ end
 
 get '/' do
 end
-
