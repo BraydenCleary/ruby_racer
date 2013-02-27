@@ -13,7 +13,7 @@ end
 
 get '/games/:id/play' do 
   @game = Game.find(params[:id])
-  @game.start!
+  players = @game.players
   erb :play
 end
 
@@ -27,3 +27,7 @@ get '/games/:url' do
   @game = Game.find_by_url(params[:url])
   erb :games_show
 end
+
+get '/' do
+end
+

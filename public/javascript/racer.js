@@ -1,36 +1,90 @@
-$(document).ready(function() {
-  function update_player_position(playerName, newPosition){
-    if (newPosition == $("tr#" + playerName + " td.track").length - 1) {
-      
-      $("tr#" + playerName + " td.track.active").removeClass('active')
-      $("tr#" + playerName + " td.track").addClass('winner')
-      $("tr#" + playerName + " td.track").eq(newPosition).addClass('active')
-      
-      var gameId = $('h2.title').attr('id').split('-')[1]
-      var winner = $("#" + playerName).attr('data-name');
-      var url = $("#" + playerName).attr('data-url');
-      $.ajax({
-        type: 'POST',
-        url: "/games/" + gameId, 
-        data: {id: parseInt(gameId), winner: winner, _method: "put"},
-        success: function(){
-          $(location).attr('href', "/games/" + url);
-        }
-      });
+//Game
+  //actions
+    //checkFinished
+    //end
+    //start
+    //determineWinner
 
-    } else {
-        $("tr#" + playerName + " td.track.active").removeClass('active')
-        $("tr#" + playerName + " td.track").eq(newPosition).addClass('active')      
-    }
-  }  
- 
-  $(document).on('keyup', function(e) {
-    if (e.keyCode === 80) {
-      var player = "player-1"
-      update_player_position(player, $("tr#" + player + " .track.active").index() + 1)
-    } else if (e.keyCode === 81) {
-      var player = "player-2"
-      update_player_position(player, $("tr#" + player + " .track.active").index() + 1)
-    }
+  //properties
+    //finished
+    //startTime
+    //gameDuration
+    //winner
+
+
+//Player
+  //actions
+    //advance
+
+
+  //properties
+    //currentPosition
+    //id
+
+
+function Game(player1, player2) {
+  this.boardLength  = 10;
+  this.player1      = player1;
+  this.player2      = player2;
+  this.finished     = false;
+}
+
+Game.prototype.checkFinished = function() {
+  if (player1.position == 10 || player2.position == 10) {
+    return true
+  } else {
+    return false
+  }
+}
+
+//define some type of key press listener
+
+
+
+Game.prototype.end = function() {
+  this.playingTime = $.now() - this.startTime;
+}
+
+Game.prototype.start = function() {
+  this.startTime = $.now();
+}
+
+Game.prototype.determineWinner = function() {
+  if (player1.position == 10)
+    this.winner = player1.id
+  else if (player1.position == 10) {
+    this.winner = player2.id
+  }
+}
+
+function Player(name)  {
+  this.name = name;
+  this.position = 0;
+}
+
+Player.prototype.advance = function() {
+  this.position++;
+}
+
+$(document).ready(function(){
+  $('#game-form').submit(function(data){
+    var player1Name = $(this).serializeArray()[0].value;
+    var player2Name = $(this).serializeArray()[1].value;
+
+    var player1 = new Player(player1Name);
+    var player2 = new Player(player2Name);
+
+    var game = new Game(player1, player2);
+    game.start();
+
+    $(document).on('keyup', function(event){
+      if event.keyCode == 80
+    });
+
+    debugger
+
   });
-});
+}); 
+
+
+
